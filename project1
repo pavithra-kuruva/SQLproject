@@ -1,0 +1,156 @@
+create Database;
+show tables;
+create table student(id int, name varchar(20),gender varchar(10),branch varchar(10),email_id varchar(30),passedout_year varchar(10),grade varchar(5));
+create table bank_account(acc_no varchar(25),holder_name varchar(20),IFSC_Code varchar(20),acc_balance int);
+insert into student values(101, 'Anu', 'Female','CSE','kuruvaanuhya@gmail.com','2019-2023', 'A');
+insert into student values(102, 'meghana', 'Female','CSE','meghanareddy29@gmail.com','2017-2021','C');
+insert into student values(103, 'lavanya', 'Female','ECE','lavanyareddy13@gmail.com','2018-2022','B');
+insert into student values(104, 'pavithra', 'Female','EEE','kuruvapavithra69@gmail.com','2015-2019','D');
+insert into student values(105, 'pradeep', 'male','Mech','kuruvapradeep123@gmail.com','2014-2018','E');
+insert into student values(106, 'lakshmi', 'Female','CIVIL','lakshmilavanya234@gmail.com','2010-2014','B');
+insert into student values(107, 'sowmya', 'Female','EEE','sowmyareddy34@gmail.com','2008-2011','D');
+insert into student values(108, 'Rahul', 'male','ECE','rahulakummala768@gmail.com','2015-2020','E');
+insert into student values(109, 'Sreekanth', 'male','MECHANICAL','sreekanthakumalla2313@gmail.com','2020-2024','A+');
+insert into student values(110, 'reethika', 'Female','AI','reethurathika34@gmail.com','2010-2015','B+');
+insert into student values(111, 'radha', 'Female','CVIL','radhareddy5563@gmail.com','2005-2009','C');
+insert into student values(112, 'malli', 'Female','ECE','malleswarirocks76@gmail.com','2000-2004','C+');
+insert into student values(113, 'Rahul', 'Female','CSE','malleswarirupa543@gmail.com','2015-2019','D');
+insert into student values(114, 'shiva', 'male','EEE','shivareddy2213@gmail.com','2008-2012','D+');
+insert into student values(115, 'pavan', 'male','ECE','pavandallapathi213@gmail.com','2002-2006','E');
+insert into student values(116, 'pavani', 'Female','Data science','pavanidagubbati113@gmail.com','2018-2022','F');
+
+insert into employee values(3452436785, 'Srvani','ADB076586',50000);
+insert into employee values(9875435689, 'Sreekanth','APGB876544' 45000);
+insert into employee values(0111165478, 'Apsika','SBI564378'78000 );
+insert into employee values(1118656780, 'Hari', 'KA98765322'20000);
+insert into employee values(9347245780, 'yeshu','SYN3462789'28920);
+insert into employee values(9177564519, 'prakash','SYN3462789'89720);
+insert into employee values(8976111357, 'priya','SYN3462789'34520);
+insert into employee values(8976373578, 'likki','SYN3462789'20320);
+insert into employee values(89765435998, 'ayansh','SYN3462789'45420);
+insert into employee values(9347643568, 'sree','SYN3462789'58160);
+insert into employee values(9976556578, 'vennela','SYN3462789'572110);
+
+select *
+from student;
+select *
+from bank_account;
+select *
+//Find the total dateails of all male students
+select * from student
+where gender='male';
+
+//find the email id whose id number is 103
+select email_id
+from student
+where id=103;
+
+//display all the students detalis whose passedout year below 2019
+select *from student
+where passedout_year>=2019;
+
+//update student email_id and also grade whose id number is 101
+update student
+set email_id='nagabusanamanuhya@gmail.com',grade='B'
+where id=101;
+
+// by using delete query to delete all the records  whose name is pavithra
+Delete from student
+where name='pavithra';
+
+//commit,Rollback,savepoint on student table
+select * from student
+update student 
+set grade ='A'
+where id=102;
+
+insert into student values(106,'rupa','female','civil','rupaneraedujalla23@gmail.com','2010-2015','A');
+commit;
+delete from student;
+where email-id='kuruvapavithra69@gmail.com';
+rollback;
+insert into student values(107,'raju','male','civil','rajuneraedujalla123@gmail.com','2011-2016','B');
+savepoint S1;
+delete from student
+where branch='EEE';
+savepont S2;
+
+//write a query to rename the student table
+rename student to stu;
+
+//write a query to drop the email id whose id number is 107 in student table
+alter table stu
+drop column email_id
+ 
+// write a query to truncate the student table
+Truncate  table stu;
+
+//to recover the table
+flashback table stu
+To before Drop;
+
+//group by
+select count(*), from student
+where Name like '%A%'
+group by grade;
+
+//order by
+select grade
+from student 
+order by grade asc;
+
+//cross join
+select  *  from student ;
+select * from bank_account;
+
+select * from student, bank_account;
+
+//inner join
+select * from student;
+select * from bank_account;
+
+
+select * from student,bank_account where stu.name=bank_account.name);
+  
+//outer join
+>>left outer join
+select * from student,bank_account where stu.name=bank.name(+);
+
+//right outer join 
+select * from student,bank_account
+where stu.name(+)=bank_account.name;
+
+
+//full outer join
+select * from student full outer join bank_account on stu.name=bank_account.name
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
